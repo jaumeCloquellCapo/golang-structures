@@ -11,10 +11,8 @@ var (
 )
 
 // New factory to generate new singly linked lists
-func NewLinkedList(values ...interface{}) *LinkedList {
-	list := LinkedList{}
-	list.Add(values...)
-	return &list
+func NewLinkedList() *LinkedList {
+	return &LinkedList{}
 }
 
 // LNode singly linked list node
@@ -83,10 +81,10 @@ func (s *LinkedList) GetIndexOf(value interface{}) int {
 }
 
 // Add add to the list
-func (s *LinkedList) Add(values ...interface{}) {
-	for _, value := range values {
+func (s *LinkedList) Add(value interface{}) {
+
 		s.InsertAt(s.Size(), value)
-	}
+
 }
 
 // InsertAt insert value at specific index in the list

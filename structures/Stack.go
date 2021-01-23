@@ -11,8 +11,8 @@ type Stack struct {
 }
 
 // NewStack factory to generate new stacks
-func NewStack(values ...interface{}) *Stack {
-	return &Stack{list: NewLinkedList(values...)}
+func NewStack() *Stack {
+	return &Stack{list: NewLinkedList()}
 }
 
 // Size returns size of the stack
@@ -20,15 +20,12 @@ func (s *Stack) size() int {
 	return s.list.Size()
 }
 
-func (s *Stack) Push(value interface{}) (interface{}, error) {
-	if s.isEmpty() {
-		return nil, errEmptyStack
-	}
-	return s.list.RemoveAt(s.size() - 1)
+func (s *Stack) Push(value interface{}) {
+	s.list.Add(value)
 }
 
 func (s *Stack) isEmpty() bool {
-	return s.isEmpty()
+	return s.list.IsEmpty()
 }
 
 
@@ -36,7 +33,6 @@ func (s *Stack) Pull() (interface{}, error) {
 	if s.isEmpty(){
 		return nil, errEmptyStack
 	}
-
-	return s.list.GetLastValue()
+	return s.list.RemoveAt(s.list.Size() - 1)
 }
 
