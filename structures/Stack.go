@@ -37,6 +37,6 @@ func (s *Stack) Pull() (interface{}, error) {
 		return nil, errEmptyStack
 	}
 
-	return s.list.GetLastValue(), nil
+	return s.list.GetLastValue()
 }
 

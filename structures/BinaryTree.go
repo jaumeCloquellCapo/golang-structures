@@ -1,7 +1,5 @@
 package structures
 
-import "errors"
-
 type TreeInterface interface {
 	Insert(value int)
 }
@@ -9,11 +7,6 @@ type TreeInterface interface {
 type BinaryTree struct {
 	head *TNode
 }
-
-
-var (
-	errTreeEmpty        = errors.New("tree is empty")
-)
 
 
 type TNode struct {
